@@ -1,0 +1,6 @@
+pre-push:
+  commands:
+    check-plugin-versions:
+      only:
+        - ref: main
+      run: bun run scripts/check-plugin-versions.ts
