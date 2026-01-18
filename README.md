@@ -11,14 +11,14 @@ This is a plugin marketplace for [Claude Code](https://claude.com/claude-code), 
 To add this marketplace to your Claude Code installation:
 
 ```bash
-# If hosted on GitHub (replace with your username/repo)
-/plugin marketplace add your-username/skills
+# Add the marketplace using GitHub shorthand
+/plugin marketplace add just-be-dev/skills
 
 # Or using a local path
 /plugin marketplace add /path/to/skills
 
 # Or using a full Git URL
-/plugin marketplace add https://github.com/your-username/skills.git
+/plugin marketplace add https://github.com/just-be-dev/skills.git
 ```
 
 ## Installing Plugins
@@ -65,7 +65,7 @@ Create `.claude-plugin/plugin.json`:
   "description": "Brief description of what your skill does",
   "version": "1.0.0",
   "author": {
-    "name": "Your Name"
+    "name": "Justin Bennett"
   }
 }
 ```
@@ -152,7 +152,7 @@ claude plugin validate .
 
 ## License
 
-Please specify your license here. Individual plugins may have their own licenses as specified in their `plugin.json` files.
+MIT License - see [LICENSE](LICENSE) for details. Individual plugins may have their own licenses as specified in their `plugin.json` files.
 
 ## Support
 
