@@ -1,0 +1,7 @@
+[tools]
+bun = "1.3.6"
+claude = "2.1.12"
+
+[tasks.validate]
+description = "Validate marketplace and plugin schemas"
+run = "bun run validate-all.ts"
