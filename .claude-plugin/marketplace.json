@@ -1,0 +1,18 @@
+{
+  "name": "skills",
+  "owner": {
+    "name": "Your Name"
+  },
+  "metadata": {
+    "description": "A marketplace of Claude Code skills and plugins",
+    "version": "1.0.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "example-skill",
+      "source": "./plugins/example-skill",
+      "description": "An example skill plugin to demonstrate the marketplace structure"
+    }
+  ]
+}
