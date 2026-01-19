@@ -45,7 +45,10 @@ async function getChangedPlugins(options: Options): Promise<string[]> {
   }
 }
 
-async function validatePlugin(pluginName: string, options: Options): Promise<boolean> {
+async function validatePlugin(
+  pluginName: string,
+  options: Options,
+): Promise<boolean> {
   try {
     const args = ["./scripts/changed-plugins.ts", pluginName];
     if (options.staged) {
@@ -59,7 +62,9 @@ async function validatePlugin(pluginName: string, options: Options): Promise<boo
     const diff = await $.raw(args.join(" ")).text();
 
     // Pipe it to validate-plugin-version
-    const result = await $`echo ${diff}`.pipe($`./scripts/validate-plugin-version.ts`).text();
+    const result = await $`echo ${diff}`
+      .pipe($`./scripts/validate-plugin-version.ts`)
+      .text();
 
     const response = result.trim();
     return response === "YES";
@@ -72,54 +77,31 @@ async function validatePlugin(pluginName: string, options: Options): Promise<boo
 async function main() {
   const options = parseArgs();
 
-  console.log("🔍 Checking plugin versions for changes");
-  console.log("========================================");
-  console.log("");
-
   const changedPlugins = await getChangedPlugins(options);
 
   if (changedPlugins.length === 0) {
-    console.log("✨ No plugin changes detected");
     process.exit(0);
   }
-
-  console.log(`📦 Found ${changedPlugins.length} changed plugin(s): ${changedPlugins.join(", ")}`);
-  console.log("");
 
   const pluginsNeedingUpdate: string[] = [];
 
   for (const pluginName of changedPlugins) {
-    console.log(`🔌 Checking plugin: ${pluginName}`);
-
     const needsUpdate = await validatePlugin(pluginName, options);
 
     if (needsUpdate) {
-      console.log(`   ⚠️  Version update REQUIRED`);
       pluginsNeedingUpdate.push(pluginName);
-    } else {
-      console.log(`   ✅ No version update needed`);
     }
-
-    console.log("");
   }
 
-  // Summary
-  console.log("========================================");
-  console.log("📊 Summary:");
-  console.log(`   Total plugins changed: ${changedPlugins.length}`);
-  console.log(`   Plugins requiring version update: ${pluginsNeedingUpdate.length}`);
-  console.log("");
-
   if (pluginsNeedingUpdate.length > 0) {
-    console.log("⚠️  The following plugins need version updates:");
+    console.log("⚠️  Plugin version updates required:");
     for (const plugin of pluginsNeedingUpdate) {
-      console.log(`   - ${plugin} (plugins/${plugin}/.claude-plugin/plugin.json)`);
+      console.log(
+        `   - ${plugin} (plugins/${plugin}/.claude-plugin/plugin.json)`,
+      );
     }
-    console.log("");
-    console.log("❌ Version check failed: Please update plugin versions");
     process.exit(1);
   } else {
-    console.log("✨ All plugin versions are up to date!");
     process.exit(0);
   }
 }
