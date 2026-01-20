@@ -11,6 +11,11 @@
   },
   "plugins": [
     {
+      "name": "claude-web",
+      "source": "./plugins/claude-web",
+      "description": "Claude Code web startup hooks for automated mise setup"
+    },
+    {
       "name": "conductor",
       "source": "./plugins/conductor",
       "description": "Conductor integration plugin for setting up workspace configuration"

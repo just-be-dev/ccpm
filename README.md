@@ -36,6 +36,12 @@ Once the marketplace is added, you can install plugins:
 **Commands:**
 - `/setup` - Create a conductor.json file with setup and run scripts based on your project configuration
 
+### Claude Web
+
+Automatically sets up mise when starting a Claude Code session, particularly useful for web-based instances. Once installed, this plugin runs a startup hook that checks for mise installation and automatically runs `mise trust && mise install` in remote environments.
+
+**Install:** `/plugin install claude-web@just-be`
+
 ### Mise
 
 [mise](https://mise.jdx.dev/) is a tool for managing development tools and environments. It acts as a simple replacement for make.
