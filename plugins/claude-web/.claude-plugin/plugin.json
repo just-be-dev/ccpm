@@ -1,0 +1,8 @@
+{
+  "name": "claude-web",
+  "description": "Claude Code web startup hooks for automated mise setup",
+  "version": "1.0.0",
+  "author": {
+    "name": "Justin Bennett"
+  }
+}
