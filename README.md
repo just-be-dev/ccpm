@@ -42,6 +42,15 @@ Automatically sets up mise when starting a Claude Code session, particularly use
 
 **Install:** `/plugin install claude-web@just-be`
 
+### GitHub
+
+Automates GitHub repository setup and configuration with best practices. This plugin helps create new repositories, configure remote origins, and apply recommended settings including disabling merge commits and enabling auto-deletion of merged branches.
+
+**Install:** `/plugin install github@just-be`
+
+**Commands:**
+- `/setup` - Create and configure a GitHub repository with best practices (disables merge commits, enables auto-delete of branches, sets description)
+
 ### Mise
 
 [mise](https://mise.jdx.dev/) is a tool for managing development tools and environments. It acts as a simple replacement for make.
