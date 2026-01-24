@@ -55,11 +55,17 @@ When this command is invoked, you should:
    - Otherwise leave it out or ask the user what command to use
    
    **For the `runScriptMode` field:**
-   - If you added a run script...
-      - Ask the user if they want to run scripts concurrently or non-concurrently
-      - If they choose concurrent, set the value to "concurrent"
-      - If they choose non-concurrent, set the value to "nonconcurrent"
-      - If they choose neither, set the value to "nonconcurrent"
+   - If you added a run script, ask the user about how they want Conductor to manage running instances:
+      - **"concurrent"**: Allows the app to run multiple times simultaneously (one instance per workspace). Choose this when:
+        - The app can safely run on different ports for each workspace
+        - Each workspace is independent (e.g., different projects, separate databases)
+        - You want to work on multiple features in parallel
+      - **"nonconcurrent"**: Only one instance of the app can run at a time. Conductor will automatically kill any other running instances before starting a new one. Choose this when:
+        - The app uses a fixed port or shared resource
+        - Running multiple instances would cause conflicts
+        - You only want one development server running at a time
+      - When asking the user, explain these differences clearly so they understand the implications
+      - Default to "nonconcurrent" if the user doesn't have a preference
 
 5. **Write the conductor.json file**
    - Create the file with proper JSON formatting
