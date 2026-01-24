@@ -21,6 +21,11 @@
       "description": "Conductor integration plugin for setting up workspace configuration"
     },
     {
+      "name": "github",
+      "source": "./plugins/github",
+      "description": "GitHub integration plugin for repository setup and configuration"
+    },
+    {
       "name": "mise",
       "source": "./plugins/mise",
       "description": "Mise integration plugin for managing development tools and environments"
