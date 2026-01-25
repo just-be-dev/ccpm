@@ -29,7 +29,7 @@ When this command is invoked, you should:
 
    **Body format**:
    ```
-   @claude 
+   @claude
 
    Create a new plugin called `[plugin-name]`.
 

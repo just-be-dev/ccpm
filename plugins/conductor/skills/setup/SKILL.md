@@ -53,7 +53,7 @@ When this command is invoked, you should:
    - Otherwise if `package.json` has a `dev` script: use `"npm run dev"` (or appropriate package manager)
    - Otherwise if `package.json` has a `start` script: use `"npm run start"` (or appropriate package manager)
    - Otherwise leave it out or ask the user what command to use
-   
+
    **For the `runScriptMode` field:**
    - If you added a run script, ask the user about how they want Conductor to manage running instances:
       - **"concurrent"**: Allows the app to run multiple times simultaneously (one instance per workspace). Choose this when:

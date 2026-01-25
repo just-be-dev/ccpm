@@ -14,7 +14,7 @@ When this command is invoked, you should:
 1. **Check if mise is installed**
    - Run `which mise` to verify mise is available
    - If not installed, inform the user to install it via `curl https://mise.run | sh` and STOP
-   
+
 2. **Check for existing configuration**
    - Look for existing mise configuration files:
      - `mise.toml` (preferred name)
