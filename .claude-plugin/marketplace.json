@@ -34,6 +34,11 @@
       "name": "meta",
       "source": "./plugins/meta",
       "description": "Meta plugin for managing and creating plugins in the just-be-dev/skills marketplace"
+    },
+    {
+      "name": "skills-sh",
+      "source": "./plugins/skills-sh",
+      "description": "Shell-based skills plugin for custom command execution and automation"
     }
   ]
 }
