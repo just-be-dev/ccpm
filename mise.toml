@@ -24,3 +24,15 @@ run = "bun run scripts/verify-version-updates.ts"
 [tasks.bump-version]
 description = "Bump the version of a plugin based on staged changes"
 run = "bun run scripts/bump-plugin-version.ts {{arg(n='plugin')}}"
+
+[tasks."skills:add"]
+description = "Install skills and move them to plugins/skills-sh/skills"
+run = """
+skills add {{args}} && \
+if [ -d .agents/skills ]; then \
+  mkdir -p plugins/skills-sh/skills && \
+  cp -R .agents/skills/* plugins/skills-sh/skills/ && \
+  rm -rf .agents/skills && \
+  rmdir .agents 2>/dev/null || true; \
+fi
+"""
